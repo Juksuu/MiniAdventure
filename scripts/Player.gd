@@ -9,7 +9,7 @@ onready var animationState = animationTree.get("parameters/playback")
 
 var velocity = Vector2.ZERO
 var isWeaponEquipped = false
-var hasWeapon = false
+var hasWeapon = true
 
 func _input(_ev):
 	if Input.is_key_pressed(KEY_SPACE):
