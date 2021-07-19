@@ -19,6 +19,9 @@ func _input(_ev):
 		isWeaponEquipped = !isWeaponEquipped
 		animationState.start("IdleWep") if isWeaponEquipped else animationState.start("Idle")
 
+	elif Input.is_key_pressed(KEY_F) and isWeaponEquipped:
+		animationState.travel("Attack")
+
 
 func _physics_process(delta):
 	var inputVector = Vector2.ZERO

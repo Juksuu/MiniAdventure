@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=2]
+[gd_scene load_steps=137 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/noWeapon/walk/walk down3.png" type="Texture" id=2]
@@ -192,7 +192,6 @@ height = 4.30901
 [sub_resource type="Animation" id=3]
 resource_name = "AttackDown"
 length = 0.4
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -221,7 +220,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=4]
 resource_name = "AttackLeft"
 length = 0.4
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -250,7 +248,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=5]
 resource_name = "AttackRight"
 length = 0.4
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -279,7 +276,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=6]
 resource_name = "AttackUp"
 length = 0.4
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -735,6 +731,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=22]
 resource_name = "WalkUpWep"
 length = 0.4
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -883,8 +880,12 @@ blend_mode = 1
 [sub_resource type="AnimationNodeStateMachineTransition" id=51]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=52]
+switch_mode = 2
+auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=53]
+[sub_resource type="AnimationNodeStateMachineTransition" id=53]
+
+[sub_resource type="AnimationNodeStateMachine" id=54]
 states/Attack/node = SubResource( 27 )
 states/Attack/position = Vector2( 512.449, 166 )
 states/Idle/node = SubResource( 32 )
@@ -895,18 +896,19 @@ states/Walk/node = SubResource( 42 )
 states/Walk/position = Vector2( 86, 172 )
 states/WalkWep/node = SubResource( 47 )
 states/WalkWep/position = Vector2( 750.449, 155 )
-transitions = [ "Idle", "Walk", SubResource( 48 ), "Walk", "Idle", SubResource( 49 ), "IdleWep", "WalkWep", SubResource( 50 ), "WalkWep", "IdleWep", SubResource( 51 ), "Attack", "IdleWep", SubResource( 52 ) ]
+transitions = [ "Idle", "Walk", SubResource( 48 ), "Walk", "Idle", SubResource( 49 ), "IdleWep", "WalkWep", SubResource( 50 ), "WalkWep", "IdleWep", SubResource( 51 ), "Attack", "IdleWep", SubResource( 52 ), "IdleWep", "Attack", SubResource( 53 ) ]
 start_node = "Idle"
 graph_offset = Vector2( -145.815, 0 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=54]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=55]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "IdleLeft"
+animation = "IdleLeftWep"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.0936432, 3.55848 )
@@ -936,10 +938,10 @@ anims/WalkUp = SubResource( 21 )
 anims/WalkUpWep = SubResource( 22 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 53 )
+tree_root = SubResource( 54 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 54 )
+parameters/playback = SubResource( 55 )
 parameters/Attack/blend_position = Vector2( 0, 0 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/IdleWep/blend_position = Vector2( 0, 0 )
