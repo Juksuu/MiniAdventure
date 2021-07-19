@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=2]
+[gd_scene load_steps=138 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/noWeapon/walk/walk down3.png" type="Texture" id=2]
@@ -902,6 +902,10 @@ graph_offset = Vector2( -145.815, 0 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=55]
 
+[sub_resource type="CapsuleShape2D" id=56]
+radius = 3.30135
+height = 0.0
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -911,7 +915,7 @@ animation = "IdleLeftWep"
 frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.0936432, 3.55848 )
+position = Vector2( 0, 4 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
@@ -950,3 +954,9 @@ parameters/WalkWep/blend_position = Vector2( 0, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0, 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 56 )
