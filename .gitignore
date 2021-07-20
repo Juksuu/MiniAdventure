@@ -2,3 +2,4 @@
 .import/
 *.translation
 export_presets.cfg
+build/

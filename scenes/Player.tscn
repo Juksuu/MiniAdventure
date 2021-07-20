@@ -911,7 +911,7 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "IdleLeftWep"
+animation = "IdleLeft"
 frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
