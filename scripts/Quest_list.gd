@@ -35,3 +35,7 @@ func _ready():
 		instance.anchor_right = START_ANCHOR.x
 		instance.anchor_top = START_ANCHOR.y + (i + extra_space) * OFFSET_ANCHOR.y
 		instance.anchor_bottom = START_ANCHOR.y + (i + extra_space) * OFFSET_ANCHOR.y
+
+func _on_quests_received():
+	for quest in quest_intances:
+		quest.visible = true

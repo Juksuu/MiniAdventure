@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/UI/hp_bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/UI/hp_fill.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Player_hud.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Quest_list.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Dialog.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/UI/Silver.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 17
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
 
 [node name="Player_hud" type="Control"]
 anchor_right = 1.0
@@ -15,6 +23,12 @@ __meta__ = {
 
 [node name="Quest_list" parent="." instance=ExtResource( 4 )]
 
+[node name="Dialog" parent="." instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 256.0
+margin_bottom = 144.0
+
 [node name="hp_bar" type="Sprite" parent="."]
 position = Vector2( 3, 3 )
 scale = Vector2( 0.6, 0.6 )
@@ -25,3 +39,31 @@ centered = false
 position = Vector2( 7.98851, 0.0257435 )
 texture = ExtResource( 2 )
 centered = false
+
+[node name="Control" type="Control" parent="."]
+margin_right = 256.0
+margin_bottom = 144.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Interact_label" type="Label" parent="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+margin_left = -31.2097
+margin_top = -4.85875
+margin_right = 73.7903
+margin_bottom = 15.1412
+rect_scale = Vector2( 0.6, 0.6 )
+custom_fonts/font = SubResource( 1 )
+text = "Press E to interact"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="quests_received" from="Dialog" to="Quest_list" method="_on_quests_received"]

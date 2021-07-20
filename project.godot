@@ -14,6 +14,10 @@ config/name="MiniAdventure"
 run/main_scene="res://scenes/Main_menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+global="*res://scripts/global.gd"
+
 [display]
 
 window/size/width=256

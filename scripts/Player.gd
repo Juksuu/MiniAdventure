@@ -14,6 +14,7 @@ var velocity = Vector2.ZERO
 var isWeaponEquipped = false
 var hasWeapon = true
 var current_health = START_HP
+var can_move = true
 
 func _ready():
 	hud.init(current_health)
@@ -31,6 +32,9 @@ func _input(_ev):
 
 
 func _physics_process(delta):
+	if !can_move:
+		return
+	
 	var inputVector = Vector2.ZERO
 	inputVector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	inputVector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -45,6 +49,9 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(inputVector, FRICTION * delta)
 
 	move_and_slide(velocity)
+
+func set_move_status(status: bool):
+	can_move = status
 
 func setAnimationDir(dir: Vector2):
 	animationTree.set("parameters/Attack/blend_position", dir)

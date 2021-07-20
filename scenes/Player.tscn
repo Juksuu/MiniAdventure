@@ -907,12 +907,15 @@ graph_offset = Vector2( -145.815, 0 )
 radius = 3.30135
 height = 0.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "IdleLeft"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4 )
@@ -963,7 +966,9 @@ __meta__ = {
 anchor_mode = 0
 current = true
 
-[node name="Player_hud" parent="Control/Camera2D" instance=ExtResource( 82 )]
+[node name="Player_hud" parent="Control/Camera2D" groups=[
+"hud",
+] instance=ExtResource( 82 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 

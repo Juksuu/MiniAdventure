@@ -1,9 +1,10 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://assets/tavern/tilableFloorsAndWalls.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Tavern_inside.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Table.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Potion_seller.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Interaction.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -637,6 +638,9 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="RectangleShape2D" id=43]
 extents = Vector2( 28.0341, 10 )
 
+[sub_resource type="RectangleShape2D" id=44]
+extents = Vector2( 31.0323, 10 )
+
 [node name="Tavern_inside" type="YSort"]
 script = ExtResource( 2 )
 
@@ -662,4 +666,13 @@ position = Vector2( 65.157, 129.254 )
 position = Vector2( 62.8507, 228.828 )
 shape = SubResource( 43 )
 
+[node name="Interaction" parent="." instance=ExtResource( 5 )]
+
+[node name="CollisionShape2D" parent="Interaction" index="0"]
+position = Vector2( 63.5678, 138.79 )
+shape = SubResource( 44 )
+
 [connection signal="area_entered" from="Exit" to="." method="_on_Exit_area_entered"]
+[connection signal="interaction" from="Interaction" to="." method="_on_interaction"]
+
+[editable path="Interaction"]

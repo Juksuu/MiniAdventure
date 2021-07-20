@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/UI/GUI.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Dialog.gd" type="Script" id=2]
+[ext_resource path="res://assets/UI/Silver.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 17
+extra_spacing_bottom = -10
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 17
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[node name="Dialog" type="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchor_left = 0.05
+anchor_top = 0.8
+anchor_right = 0.05
+anchor_bottom = 0.8
+margin_left = -0.783813
+margin_right = 79.2162
+margin_bottom = 20.0
+texture = ExtResource( 1 )
+region_rect = Rect2( 81, 97, 30, 30 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 231.0
+margin_bottom = 51.0
+rect_scale = Vector2( 0.32, 0.32 )
+custom_fonts/font = SubResource( 1 )
+autowrap = true
+
+[node name="continue_label" type="Label" parent="NinePatchRect"]
+visible = false
+anchor_left = 0.6
+anchor_top = 0.8
+anchor_right = 0.6
+anchor_bottom = 0.8
+margin_right = 40.0
+margin_bottom = 14.0
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 2 )
+text = "Press E to continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
