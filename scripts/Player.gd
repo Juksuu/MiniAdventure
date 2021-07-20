@@ -3,13 +3,20 @@ extends KinematicBody2D
 const SPEED = 80
 const ACCELERATION = 500
 const FRICTION = 400
+const START_HP = 100
 
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
+onready var hud = $Control/Camera2D/Player_hud
+
 var velocity = Vector2.ZERO
 var isWeaponEquipped = false
 var hasWeapon = true
+var current_health = START_HP
+
+func _ready():
+	hud.init(current_health)
 
 func _input(_ev):
 	if Input.is_key_pressed(KEY_SPACE):
