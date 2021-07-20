@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/UI/GUI.png" type="Texture" id=1]
+[ext_resource path="res://assets/UI/Silver.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/Quest_list.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Quest_list" type="Control"]
+margin_right = 256.0
+margin_bottom = 144.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="list_bg" type="NinePatchRect" parent="."]
+anchor_left = 0.8
+anchor_top = 0.05
+anchor_right = 0.8
+anchor_bottom = 0.05
+margin_left = -0.199997
+margin_top = -0.2
+margin_right = 35.8
+margin_bottom = 61.8
+texture = ExtResource( 1 )
+region_rect = Rect2( 49, 97, 30, 30 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="list_bg"]
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.1
+margin_left = -9.46771
+margin_top = -3.77008
+margin_right = 27.5323
+margin_bottom = 16.2299
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 1 )
+text = "Quests"
+__meta__ = {
+"_edit_use_anchors_": false
+}
