@@ -65,6 +65,9 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(inputVector, FRICTION * delta)
 
 	move_and_slide(velocity)
+	
+	if dead:
+		animationState.travel("Death")
 
 func give_weapon():
 	has_weapon = true
@@ -91,6 +94,7 @@ func take_dmg():
 	
 func die():
 	dead = true
+	animationState.travel("Death")
 
 func _on_hurtbox_entered(area):
 	should_take_dmg = true
