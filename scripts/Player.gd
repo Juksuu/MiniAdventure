@@ -12,7 +12,7 @@ onready var hud = $Control/Camera2D/Player_hud
 
 var velocity = Vector2.ZERO
 var isWeaponEquipped = false
-var hasWeapon = true
+var has_weapon = false
 var current_health = START_HP
 var can_move = true
 
@@ -21,7 +21,7 @@ func _ready():
 
 func _input(_ev):
 	if Input.is_key_pressed(KEY_SPACE):
-		if !hasWeapon:
+		if !has_weapon:
 			return
 
 		isWeaponEquipped = !isWeaponEquipped
@@ -49,6 +49,10 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(inputVector, FRICTION * delta)
 
 	move_and_slide(velocity)
+
+func give_weapon():
+	has_weapon = true
+	hud.update_quests()
 
 func set_move_status(status: bool):
 	can_move = status

@@ -15,6 +15,14 @@ const TAVERN_USED_DIALOG = [
 	"Go find that sword and kill the monsters please!"
 ]
 
+const SWORD_CHEST = [
+	"There is a sword in this chest.\nNow I can equip it with SPACE."
+]
+
+const EMPTY_CHEST = [
+	"Chest is empty..."
+]
+
 var current_dialog
 
 func _input(event):
@@ -40,7 +48,19 @@ func show_dialog(dialog):
 			print("TAVERN_USED DIALOG")
 			for text in TAVERN_USED_DIALOG:
 				label.text = text
+				yield(get_tree().create_timer(1), "timeout")
+			continue_label.visible = true
+		global.Dialog.CHEST_SWORD:
+			print("SWORD CHEST OPENED")
+			for text in SWORD_CHEST:
+				label.text = text
 				yield(get_tree().create_timer(2), "timeout")
+			continue_label.visible = true
+		global.Dialog.CHEST_EMPTY:
+			print("EMPTY CHEST OPENED")
+			for text in EMPTY_CHEST:
+				label.text = text
+				yield(get_tree().create_timer(1), "timeout")
 			continue_label.visible = true
 		_:
 			print(dialog, " Dialog not implemented")

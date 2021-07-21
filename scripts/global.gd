@@ -2,5 +2,7 @@ extends Node
 
 enum Dialog {
 	TAVERN,
-	TAVERN_USED
+	TAVERN_USED,
+	CHEST_SWORD,
+	CHEST_EMPTY
 }

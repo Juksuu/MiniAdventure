@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Map.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Tavern.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/World.gd" type="Script" id=4]
 [ext_resource path="res://scenes/Tavern_inside.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Chest.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 4 )
@@ -23,6 +24,13 @@ position = Vector2( 145.871, -76.7462 )
 
 [node name="Tavern_inside" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 47.1685, -254.109 )
+
+[node name="Chest" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( -178.728, -101.132 )
+
+[node name="Chest2" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 293.176, -104.046 )
+has_sword = true
 
 [connection signal="tavern_entered" from="YSort/Tavern" to="." method="_on_Tavern_tavern_entered"]
 [connection signal="tavern_exit" from="YSort/Tavern_inside" to="." method="_on_Tavern_inside_tavern_exit"]

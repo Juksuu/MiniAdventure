@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/Tileset.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Interaction.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Chest.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 8.99823 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7.05281, 7.10968 )
+
+[node name="Chest" type="KinematicBody2D"]
+script = ExtResource( 3 )
+
+[node name="chest_closed" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 33, 98, 14, 14 )
+
+[node name="chest_open" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 49, 98, 14, 14 )
+
+[node name="Interaction" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" parent="Interaction" index="0"]
+position = Vector2( 0.0992126, -0.396851 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[connection signal="interaction" from="Interaction" to="." method="_on_interaction"]
+
+[editable path="Interaction"]
