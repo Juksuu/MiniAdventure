@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=2]
+[gd_scene load_steps=143 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/noWeapon/walk/walk down3.png" type="Texture" id=2]
@@ -83,6 +83,7 @@
 [ext_resource path="res://assets/player/noWeapon/idle/idle left1.png" type="Texture" id=81]
 [ext_resource path="res://scenes/Player_hud.tscn" type="PackedScene" id=82]
 [ext_resource path="res://scenes/Hitbox.tscn" type="PackedScene" id=83]
+[ext_resource path="res://scenes/Hurtbox.tscn" type="PackedScene" id=84]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -1056,6 +1057,10 @@ height = 0.0
 radius = 5.0
 height = 8.0
 
+[sub_resource type="CapsuleShape2D" id=58]
+radius = 4.37171
+height = 2.66047
+
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
 ]]
@@ -1065,7 +1070,6 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "IdleDown"
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4 )
@@ -1133,10 +1137,26 @@ position = Vector2( 0, 5 )
 
 [node name="Hitbox" parent="HitboxPivot" instance=ExtResource( 83 )]
 position = Vector2( 10, 0 )
+collision_layer = 16
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="HitboxPivot/Hitbox" index="0"]
 shape = SubResource( 57 )
 disabled = true
 
+[node name="Hurtbox" parent="." instance=ExtResource( 84 )]
+collision_layer = 4
+collision_mask = 32
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0.0883865, 2.47487 )
+shape = SubResource( 58 )
+
+[node name="Dmgtimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_entered"]
+[connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_exited"]
+[connection signal="timeout" from="Dmgtimer" to="." method="_on_dmg_timer_finish"]
+
 [editable path="HitboxPivot/Hitbox"]
+[editable path="Hurtbox"]

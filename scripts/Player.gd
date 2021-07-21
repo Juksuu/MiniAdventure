@@ -10,18 +10,25 @@ onready var animationState = animationTree.get("parameters/playback")
 
 onready var hud = $Control/Camera2D/Player_hud
 onready var hitbox = $HitboxPivot/Hitbox
+onready var timer = $Dmgtimer
 
 var velocity = Vector2.ZERO
 var isWeaponEquipped = false
 var has_weapon = false
 var current_health = START_HP
 var can_move = true
+var can_take_dmg = true
+var should_take_dmg = false
+var dead = false
 
 func _ready():
 	hud.init(current_health)
 	hitbox.knockback_vector = Vector2.DOWN
 
 func _input(_ev):
+	if dead:
+		return
+
 	if Input.is_key_pressed(KEY_SPACE):
 		if !has_weapon:
 			return
@@ -34,6 +41,12 @@ func _input(_ev):
 
 
 func _physics_process(delta):
+	if dead:
+		return
+		
+	if can_take_dmg and should_take_dmg:
+		take_dmg()
+		
 	if !can_move:
 		return
 	
@@ -65,4 +78,25 @@ func setAnimationDir(dir: Vector2):
 	animationTree.set("parameters/Idle/blend_position", dir)
 	animationTree.set("parameters/IdleWep/blend_position", dir)
 	animationTree.set("parameters/Walk/blend_position", dir)
-	animationTree.set("parameters/WalkWep/blend_position", dir)
+	animationTree.set("parameters/WalkWep/blend_position", dir)	
+	
+func take_dmg():
+	print("take dmg")
+	current_health -= 20
+	hud.update_health(current_health)
+	if current_health <= 0:
+		die()
+	can_take_dmg = false
+	timer.start()
+	
+func die():
+	dead = true
+
+func _on_hurtbox_entered(area):
+	should_take_dmg = true
+
+func _on_hurtbox_exited(area):
+	should_take_dmg = false
+
+func _on_dmg_timer_finish():
+	can_take_dmg = true

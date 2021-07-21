@@ -6,9 +6,9 @@ onready var label = $NinePatchRect/Label
 onready var continue_label = $NinePatchRect/continue_label
 
 const TAVERN_DIALOG_TEXT = [
-	"Hello!\nOur village is under attack and we need someone to help us kill the monsters.",
+	"Hello!\nOur island is under attack and we need someone to help us kill the monsters.",
 	"That seems like the perfect job for you.\nBut first you need to find a sword to fight with.",
-	"You can find an extra sword in one of the chests scattered around the village."
+	"You can find an extra sword in one of the chests scattered around the island."
 ]
 
 const TAVERN_USED_DIALOG = [
@@ -24,7 +24,7 @@ const EMPTY_CHEST = [
 ]
 
 const QUESTS_DONE = [
-	"Thank you for killing those monsters!"
+	"Thank you for killing those monsters!\nOur island is finally safe again!"
 ]
 
 var current_dialog
