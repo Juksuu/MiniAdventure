@@ -32,5 +32,14 @@ position = Vector2( -178.728, -101.132 )
 position = Vector2( 293.176, -104.046 )
 has_sword = true
 
+[node name="Chest3" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 54.5, 76 )
+
+[node name="Chest4" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 85.5, 76.5 )
+
+[node name="Chest5" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 118, 75.5 )
+
 [connection signal="tavern_entered" from="YSort/Tavern" to="." method="_on_Tavern_tavern_entered"]
 [connection signal="tavern_exit" from="YSort/Tavern_inside" to="." method="_on_Tavern_inside_tavern_exit"]
