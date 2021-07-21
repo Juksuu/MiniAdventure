@@ -12,7 +12,7 @@ onready var hud = $Control/Camera2D/Player_hud
 
 var velocity = Vector2.ZERO
 var isWeaponEquipped = false
-var has_weapon = false
+var has_weapon = true
 var current_health = START_HP
 var can_move = true
 

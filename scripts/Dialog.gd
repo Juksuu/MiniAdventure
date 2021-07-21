@@ -23,6 +23,10 @@ const EMPTY_CHEST = [
 	"Chest is empty..."
 ]
 
+const QUESTS_DONE = [
+	"Thank you for killing those monsters!"
+]
+
 var current_dialog
 
 func _input(event):
@@ -32,6 +36,8 @@ func _input(event):
 		visible = false
 		if current_dialog == global.Dialog.TAVERN:
 			emit_signal("quests_received")
+		elif current_dialog == global.Dialog.QUESTS_DONE:
+			get_tree().call_group("world", "game_ended")
 
 func show_dialog(dialog):
 	get_tree().call_group("player", "set_move_status", false)
@@ -59,6 +65,12 @@ func show_dialog(dialog):
 		global.Dialog.CHEST_EMPTY:
 			print("EMPTY CHEST OPENED")
 			for text in EMPTY_CHEST:
+				label.text = text
+				yield(get_tree().create_timer(1), "timeout")
+			continue_label.visible = true
+		global.Dialog.QUESTS_DONE:
+			print("QUESTS DONE")
+			for text in QUESTS_DONE:
 				label.text = text
 				yield(get_tree().create_timer(1), "timeout")
 			continue_label.visible = true

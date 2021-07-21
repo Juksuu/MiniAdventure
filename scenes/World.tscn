@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Map.tscn" type="PackedScene" id=2]
@@ -6,8 +6,11 @@
 [ext_resource path="res://scripts/World.gd" type="Script" id=4]
 [ext_resource path="res://scenes/Tavern_inside.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Chest.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/EnemyArea.tscn" type="PackedScene" id=7]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" groups=[
+"world",
+]]
 script = ExtResource( 4 )
 
 [node name="Map_container" type="Node2D" parent="."]
@@ -41,5 +44,9 @@ position = Vector2( 85.5, 76.5 )
 [node name="Chest5" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 118, 75.5 )
 
+[node name="EnemyArea" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 359.032, 80.1809 )
+
 [connection signal="tavern_entered" from="YSort/Tavern" to="." method="_on_Tavern_tavern_entered"]
 [connection signal="tavern_exit" from="YSort/Tavern_inside" to="." method="_on_Tavern_inside_tavern_exit"]
+[connection signal="all_enemies_killed" from="YSort/EnemyArea" to="YSort/Tavern_inside" method="_on_all_enemies_killed"]

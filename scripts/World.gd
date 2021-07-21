@@ -36,3 +36,6 @@ func _on_Tavern_tavern_entered():
 
 func _on_Tavern_inside_tavern_exit():
 	call_deferred("exit_tavern")
+
+func game_ended():
+	print("GAME ENDED")
