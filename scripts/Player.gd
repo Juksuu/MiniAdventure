@@ -9,15 +9,17 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 onready var hud = $Control/Camera2D/Player_hud
+onready var hitbox = $HitboxPivot/Hitbox
 
 var velocity = Vector2.ZERO
 var isWeaponEquipped = false
-var has_weapon = true
+var has_weapon = false
 var current_health = START_HP
 var can_move = true
 
 func _ready():
 	hud.init(current_health)
+	hitbox.knockback_vector = Vector2.DOWN
 
 func _input(_ev):
 	if Input.is_key_pressed(KEY_SPACE):
@@ -41,6 +43,7 @@ func _physics_process(delta):
 	inputVector = inputVector.normalized()
 
 	if inputVector != Vector2.ZERO:
+		hitbox.knockback_vector = inputVector
 		animationState.travel("WalkWep") if isWeaponEquipped else animationState.travel("Walk")
 		setAnimationDir(inputVector)
 		velocity = velocity.move_toward(inputVector * SPEED, ACCELERATION * delta)
