@@ -5,12 +5,16 @@ const ACCELERATION = 500
 const FRICTION = 400
 const START_HP = 100
 
+var menu_scene = load("res://scenes/Main_menu.tscn")
+
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 onready var hud = $Control/Camera2D/Player_hud
 onready var hitbox = $HitboxPivot/Hitbox
 onready var timer = $Dmgtimer
+onready var footstep = $footstep
+onready var sword = $sword
 
 var velocity = Vector2.ZERO
 var isWeaponEquipped = false
@@ -20,6 +24,7 @@ var can_move = true
 var can_take_dmg = true
 var should_take_dmg = false
 var dead = false
+var moving = false
 
 func _ready():
 	hud.init(current_health)
@@ -37,6 +42,7 @@ func _input(_ev):
 		animationState.start("IdleWep") if isWeaponEquipped else animationState.start("Idle")
 
 	elif Input.is_key_pressed(KEY_F) and isWeaponEquipped:
+		sword.play()
 		animationState.travel("Attack")
 
 
@@ -56,17 +62,20 @@ func _physics_process(delta):
 	inputVector = inputVector.normalized()
 
 	if inputVector != Vector2.ZERO:
+		_set_moving(true)
 		hitbox.knockback_vector = inputVector
 		animationState.travel("WalkWep") if isWeaponEquipped else animationState.travel("Walk")
 		setAnimationDir(inputVector)
 		velocity = velocity.move_toward(inputVector * SPEED, ACCELERATION * delta)
 	else:
+		_set_moving(false)
 		animationState.travel("IdleWep") if isWeaponEquipped else animationState.travel("Idle")
 		velocity = velocity.move_toward(inputVector, FRICTION * delta)
 
 	move_and_slide(velocity)
 	
 	if dead:
+		_set_moving(false)
 		animationState.travel("Death")
 
 func give_weapon():
@@ -90,11 +99,22 @@ func take_dmg():
 	if current_health <= 0:
 		die()
 	can_take_dmg = false
-	timer.start()
+	timer.start()	
+	
+func _set_moving(is_moving):
+	if is_moving and !moving:
+		moving = is_moving
+		footstep.play()
+	elif not is_moving:
+		moving = is_moving
+		footstep.stop()
+		
 	
 func die():
 	dead = true
 	animationState.travel("Death")
+	yield(get_tree().create_timer(3), "timeout")
+	get_tree().change_scene_to(menu_scene)
 
 func _on_hurtbox_entered(area):
 	should_take_dmg = true

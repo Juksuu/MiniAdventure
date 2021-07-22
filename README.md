@@ -7,33 +7,25 @@ A small RPG game made with Godot
 
 ## Character assets
 
-### RGS_DEV
-* [Main Character](https://rgsdev.itch.io/animated-top-down-character-base-template-in-pixel-art-rgsdev)
-
-### Camacebra
-* [Crab Enemy](https://camacebra.itch.io/crab-pixel-art)
-* [Inn Keeper](https://camacebra.itch.io/pixel-art-girl-warrior)
-
+* Main Character: RGS_DEV https://rgsdev.itch.io/animated-top-down-character-base-template-in-pixel-art-rgsdev
+* Crab Enemy: Camacebra https://camacebra.itch.io/crab-pixel-art
+* Inn Keeper: Camacebra https://camacebra.itch.io/pixel-art-girl-warrior
 
 ## FONT
 
-### Poppy Works
-* [Silver](https://poppyworks.itch.io/silver)
-
+* Silver: Poppy Works https://poppyworks.itch.io/silver
 
 ## UI assets
 
-### Adwitr
-* [Player hp](https://adwitr.itch.io/pixel-health-bar-asset-pack-2)
-
-### Mounir Tohami
-* [Menu and other ui elements](https://mounirtohami.itch.io/pixel-art-gui-elements)
-
+* Player hp: Adwitr https://adwitr.itch.io/pixel-health-bar-asset-pack-1
+* Menu and other ui elements: Mounir Tohami https://mounirtohami.itch.io/pixel-art-gui-elements
 
 ## World assets
 
-### Fikry13
-* [Map tileset](https://fikry13.itch.io/another-rpg-tileset)
+* Map tileset: Fikry13 https://fikry13.itch.io/another-rpg-tileset
+* Tavern: CrazyBirdLady https://crazybirdladygames.itch.io/pixel-tavern-inn
 
-### CrazyBirdLady
-* [Tavern](https://crazybirdladygames.itch.io/pixel-tavern-inn)
+## Sounds
+
+* Background music: SoundsByDane https://soundsbydane.itch.io/8-bit-sound-pack
+* Gameplay sounds: kronbits https://kronbits.itch.io/freesfx

@@ -16,7 +16,7 @@ const TAVERN_USED_DIALOG = [
 ]
 
 const SWORD_CHEST = [
-	"There is a sword in this chest.\nNow I can equip it with SPACE."
+	"There is a sword in this chest.\nNow I can equip it with SPACE and attack with F"
 ]
 
 const EMPTY_CHEST = [

@@ -1,5 +1,7 @@
 extends Node2D
 
+var main_menu_scene = load("res://scenes/Main_menu.tscn")
+
 onready var map = $Map_container/Map
 onready var map_container = $Map_container
 
@@ -39,3 +41,5 @@ func _on_Tavern_inside_tavern_exit():
 
 func game_ended():
 	print("GAME ENDED")
+	yield(get_tree().create_timer(3), "timeout")
+	get_tree().change_scene_to(main_menu_scene)
