@@ -1,5 +1,8 @@
 # MiniAdventure
 
+A small RPG game made with Godot
+
+
 # Credits
 
 ## Characters
