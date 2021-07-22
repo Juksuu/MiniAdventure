@@ -2,7 +2,7 @@ extends YSort
 
 signal all_enemies_killed
 
-const ENEMY_AMOUNT = 5
+const ENEMY_AMOUNT = 7
 
 onready var crab_enemy = preload("res://scenes/Crab_enemy.tscn")
 onready var spawn_area_shape = $spawn_area/CollisionShape2D

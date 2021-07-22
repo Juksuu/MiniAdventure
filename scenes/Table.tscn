@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/tavern/originalIndoorSprites.png" type="Texture" id=1]
+[ext_resource path="res://assets/tavern/update01.png" type="Texture" id=2]
 
 [node name="Table" type="KinematicBody2D"]
 
@@ -12,3 +13,38 @@ region_rect = Rect2( 30, 0, 66, 45 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -33.5749, -33.6927, -33.5217, 7.11056, 34.1515, 7.11056, 33.8309, -8.49428, -21.1332, -8.33679, -20.9757, -33.2202 )
+
+[node name="drink" type="Sprite" parent="."]
+position = Vector2( -26.2376, -28.9021 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 4, 39, 11, 10 )
+
+[node name="drink2" type="Sprite" parent="."]
+position = Vector2( 27.4453, -6.6031 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 4, 39, 11, 10 )
+
+[node name="drink3" type="Sprite" parent="."]
+position = Vector2( 17.4166, -7.07504 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 4, 39, 11, 10 )
+
+[node name="drink4" type="Sprite" parent="."]
+position = Vector2( -26.1196, -19.8173 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 4, 39, 11, 10 )
+
+[node name="food" type="Sprite" parent="."]
+position = Vector2( 11.0171, -6.58081 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 66, 33, 11, 8 )

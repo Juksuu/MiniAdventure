@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://assets/tavern/tilableFloorsAndWalls.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Tavern_inside.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://scenes/Potion_seller.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Interaction.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/tavern/originalIndoorSprites.png" type="Texture" id=6]
+[ext_resource path="res://scenes/Barrel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/TableGroup.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -668,16 +670,52 @@ region_enabled = true
 region_rect = Rect2( 5.26189, 184.662, 29.6285, 17.3491 )
 
 [node name="Furnace" type="Sprite" parent="Node2D"]
-position = Vector2( 167.442, 35.6699 )
+position = Vector2( 167, 35 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 116.561, 145.875, 48.4472, 25.5672 )
 
+[node name="Sprite" type="Sprite" parent="Node2D"]
+position = Vector2( 130, 25 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 228.066, 104.725, 25.2447, 20.4283 )
+
+[node name="Sprite2" type="Sprite" parent="Node2D"]
+position = Vector2( 204, 25 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 228.066, 104.725, 25.2447, 20.4283 )
+
 [node name="Table" parent="." instance=ExtResource( 3 )]
 position = Vector2( 63.2685, 136.249 )
 
+[node name="Barrel" parent="." instance=ExtResource( 7 )]
+position = Vector2( 85.5952, 101.072 )
+
+[node name="Barrel2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 70.3452, 101.072 )
+
+[node name="Barrel3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 85.7792, 111.467 )
+
 [node name="potion_seller" parent="." instance=ExtResource( 4 )]
 position = Vector2( 65.157, 129.254 )
+
+[node name="TableGroup" parent="." instance=ExtResource( 8 )]
+position = Vector2( 200, 72.13 )
+
+[node name="TableGroup2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 170, 94.494 )
+
+[node name="TableGroup4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 140, 127 )
+
+[node name="TableGroup5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 200, 127 )
+
+[node name="TableGroup3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 140, 71.816 )
 
 [node name="Exit" type="Area2D" parent="."]
 

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Tileset.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 4.22049
+
+[node name="Bush" type="KinematicBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -12.25 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16.9106, 32.6905, 14.0922, 31.357 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/EnemyArea.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 76.8262, 52.6266 )
+extents = Vector2( 71.2293, 88.6893 )
 
 [node name="EnemyArea" type="YSort"]
 script = ExtResource( 2 )

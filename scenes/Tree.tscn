@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Tileset.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 5.66241
+
+[node name="Tree" type="KinematicBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.117989, -10.1467 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 60.8664, 30.8835, 22.2326, 33.4132 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.117981, 5.72205e-06 )
+shape = SubResource( 1 )

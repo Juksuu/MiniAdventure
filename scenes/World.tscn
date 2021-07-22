@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Map.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://scenes/Tavern_inside.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Chest.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/EnemyArea.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Tree.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Bush.tscn" type="PackedScene" id=9]
 
 [node name="World" type="Node2D" groups=[
 "world",
@@ -29,24 +31,95 @@ position = Vector2( 145.871, -76.7462 )
 position = Vector2( 47.1685, -254.109 )
 
 [node name="Chest" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( -178.728, -101.132 )
+position = Vector2( -175.768, 32.228 )
 
 [node name="Chest2" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 293.176, -104.046 )
+position = Vector2( 359.607, -71.251 )
 has_sword = true
 
 [node name="Chest3" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 54.5, 76 )
+position = Vector2( 176.382, 242.336 )
 
 [node name="Chest4" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 85.5, 76.5 )
+position = Vector2( -154.431, -88.6622 )
 
 [node name="Chest5" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 118, 75.5 )
+position = Vector2( 90.2813, 11.0728 )
 
 [node name="EnemyArea" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 359.032, 80.1809 )
+position = Vector2( 357.771, 154.18 )
+
+[node name="Tree" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -115, -100 )
+
+[node name="Tree2" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -100, -100 )
+
+[node name="Tree3" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -130, -40 )
+
+[node name="Tree4" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -130, -70 )
+
+[node name="Tree5" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -85, -100 )
+
+[node name="Tree6" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -130, -55 )
+
+[node name="Tree7" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -130, -85 )
+
+[node name="Tree11" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -130, -100 )
+
+[node name="Tree12" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -145, -100 )
+
+[node name="Tree13" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -160, -100 )
+
+[node name="Tree14" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -175, -100 )
+
+[node name="Tree15" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -175, -85 )
+
+[node name="Tree16" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -175, -70 )
+
+[node name="Tree17" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -175, -55 )
+
+[node name="Tree18" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -175, -40 )
+
+[node name="Tree19" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -175, -25 )
+
+[node name="Tree20" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -175, -10 )
+
+[node name="Tree8" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( -175, 5 )
+
+[node name="Bush" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 105, 120 )
+
+[node name="Bush3" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 125, 120 )
+
+[node name="Bush4" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 135, 137 )
+
+[node name="Bush5" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 115, 137 )
+
+[node name="Bush6" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 95, 137 )
 
 [connection signal="tavern_entered" from="YSort/Tavern" to="." method="_on_Tavern_tavern_entered"]
 [connection signal="tavern_exit" from="YSort/Tavern_inside" to="." method="_on_Tavern_inside_tavern_exit"]
 [connection signal="all_enemies_killed" from="YSort/EnemyArea" to="YSort/Tavern_inside" method="_on_all_enemies_killed"]
+
+[editable path="YSort/EnemyArea"]
