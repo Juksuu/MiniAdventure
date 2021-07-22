@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/UI/font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/UI/Silver.ttf" type="DynamicFontData" id=2]
@@ -21,6 +21,11 @@ extra_spacing_bottom = -8
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
+size = 17
+extra_spacing_bottom = -8
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
 size = 17
 extra_spacing_bottom = -8
 font_data = ExtResource( 2 )
@@ -125,6 +130,25 @@ Mounir Tohami
 adwitr"
 align = 1
 valign = 1
+
+[node name="Map_tileset" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -23.0
+margin_right = 41.0
+margin_bottom = 27.0
+grow_horizontal = 2
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 5 )
+text = "Map tileset:
+fikry13"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Back" parent="." instance=ExtResource( 3 )]
 anchor_left = 0.5
