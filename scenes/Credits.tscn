@@ -1,0 +1,136 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/UI/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/UI/Silver.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/Menu_button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/Credits.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 17
+extra_spacing_bottom = -8
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 17
+extra_spacing_bottom = -8
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 17
+extra_spacing_bottom = -8
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 17
+extra_spacing_bottom = -8
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.374573
+margin_top = -0.374573
+margin_right = 0.374573
+margin_bottom = -0.374573
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "ASSET CREDITS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Characters" type="Label" parent="."]
+anchor_left = 0.25
+anchor_top = 0.3
+anchor_right = 0.25
+anchor_bottom = 0.3
+margin_left = -20.0
+margin_right = 42.0
+margin_bottom = 72.0
+grow_horizontal = 2
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 1 )
+text = "CHARACTERS:
+RGS_DEV
+Camacebra
+
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tavern" type="Label" parent="."]
+anchor_left = 0.75
+anchor_top = 0.3
+anchor_right = 0.75
+anchor_bottom = 0.3
+margin_left = -25.0
+margin_right = 49.0
+margin_bottom = 27.0
+grow_horizontal = 2
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 2 )
+text = "Tavern:
+CrazyBirdLady"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Font" type="Label" parent="."]
+anchor_left = 0.25
+anchor_top = 0.6
+anchor_right = 0.25
+anchor_bottom = 0.6
+margin_left = -22.0
+margin_right = 42.0
+margin_bottom = 27.0
+grow_horizontal = 2
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 3 )
+text = "Font:
+Poppy Works"
+align = 1
+valign = 1
+
+[node name="Ui" type="Label" parent="."]
+anchor_left = 0.75
+anchor_top = 0.6
+anchor_right = 0.75
+anchor_bottom = 0.6
+margin_left = -25.0
+margin_right = 46.0
+margin_bottom = 42.0
+grow_horizontal = 2
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 4 )
+text = "Ui:
+Mounir Tohami
+adwitr"
+align = 1
+valign = 1
+
+[node name="Back" parent="." instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 0.9
+label_text = "Back"
+
+[connection signal="button_up" from="Back" to="." method="_on_back_pressed"]

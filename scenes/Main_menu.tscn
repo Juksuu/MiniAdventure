@@ -42,10 +42,18 @@ label_text = "Start"
 
 [node name="ExitButton" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.8
+label_text = "Exit"
+
+[node name="Credits" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.5
 anchor_top = 0.6
 anchor_right = 0.5
 anchor_bottom = 0.6
-label_text = "Exit"
+label_text = "Credits"
 
 [connection signal="button_up" from="StartButton" to="." method="_on_start_press"]
 [connection signal="button_up" from="ExitButton" to="." method="_on_exit_press"]
+[connection signal="button_up" from="Credits" to="." method="_on_credits_pressed"]
