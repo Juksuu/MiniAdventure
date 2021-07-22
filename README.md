@@ -5,7 +5,7 @@ A small RPG game made with Godot
 
 # Credits
 
-## Characters
+## Character assets
 
 ### RGS_DEV
 * [Main Character](https://rgsdev.itch.io/animated-top-down-character-base-template-in-pixel-art-rgsdev)
@@ -21,7 +21,7 @@ A small RPG game made with Godot
 * [Silver](https://poppyworks.itch.io/silver)
 
 
-## UI
+## UI assets
 
 ### Adwitr
 * [Player hp](https://adwitr.itch.io/pixel-health-bar-asset-pack-2)
@@ -30,7 +30,7 @@ A small RPG game made with Godot
 * [Menu and other ui elements](https://mounirtohami.itch.io/pixel-art-gui-elements)
 
 
-## World
+## World assets
 
 ### Fikry13
 * [Map tileset](https://fikry13.itch.io/another-rpg-tileset)
